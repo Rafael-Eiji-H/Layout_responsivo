@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.pai {
+  display: grid;
+  grid-template-areas:
+    "topo topo topo"
+    "ladoesq imagens ladodir";
+  grid-template-columns: 200px 1fr 200px;
+  grid-template-rows: auto 1fr;
+  min-height: 100vh;
+  gap: 10px;
+  padding: 10px;
+}
+
+.topo {
+  grid-area: topo;
+  background: #ddd;
+  text-align: center;
+  padding: 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.ladoesq {
+  grid-area: ladoesq;
+  background: #f2a;
+  padding: 20px;
+}
+
+.ladodir {
+  grid-area: ladodir;
+  background: #2af;
+  padding: 20px;
+}
+
+.imagens {
+  grid-area: imagens;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+.imagens div {
+  background: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .pai {
+    grid-template-areas:
+      "topo"
+      "imagens"
+      "ladoesq"
+      "ladodir";
+    grid-template-columns: 1fr;
+  }
+
+  .imagens {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .imagens {
+    grid-template-columns: 1fr;
+  }
+}
+
