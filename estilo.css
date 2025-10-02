@@ -1,86 +1,81 @@
-* {
-  margin: 0;
+*{
   padding: 0;
-  box-sizing: border-box;
+  margin: 0;
 }
 
-body {
-  font-family: Arial, sans-serif;
-}
-
-.pai {
+.Container{
   display: grid;
-  grid-template-areas:
-    "topo topo topo"
-    "ladoesq imagens ladodir";
-  grid-template-columns: 200px 1fr 200px;
-  grid-template-rows: auto 1fr;
-  min-height: 100vh;
-  gap: 10px;
+  grid-template-columns: 200px auto 200px;
+  grid-template-rows: 80px auto;
+  grid-template-areas: "Topo Topo Topo" "Lado-esq corpo Lado-dir";
+  height: 100vh;
+  border: solid 5px black;
   padding: 10px;
+  margin: 10px
 }
 
-.topo {
-  grid-area: topo;
-  background: #ddd;
-  text-align: center;
-  padding: 20px;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
 
-.ladoesq {
-  grid-area: ladoesq;
-  background: #f2a;
-  padding: 20px;
-}
-
-.ladodir {
-  grid-area: ladodir;
-  background: #2af;
-  padding: 20px;
-}
-
-.imagens {
-  grid-area: imagens;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 10px;
-  padding: 10px;
-}
-
-.imagens div {
+.Topo{
+  grid-area: Topo;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 200px;
-  overflow: hidden; /* garante que a imagem não passe do quadrado */
+  font-weight: bold;
+  background-color: lightblue;
 }
 
-.imagens img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: cover; /* corta a imagem mantendo proporção */
+.Lado-esq{
+  grid-area: Lado-dir;
+  display: flex;
+  color: white;
+  background-color: lightgreen;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Responsivo */
+.Lado-dir{
+  grid-area: Lado-esq;
+  display: flex;
+  background-color: lightsalmon;
+  color: white;
+  align-items: center;
+  justify-content: center;
+}
+
+.corpo{
+  grid-area: corpo;
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagens{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 70px;
+}
+
+.imagens img{
+  width: 100%;
+  max-width: 500px;
+  border-radius: 8px;
+}
+
 @media (max-width: 900px) {
-  .pai {
-    grid-template-areas:
-      "topo"
-      "imagens"
-      "ladoesq"
-      "ladodir";
-    grid-template-columns: 1fr;
-  }
-
-  .imagens {
-    grid-template-columns: 1fr 1fr;
-  }
+    .Container {
+        grid-template-columns: 150px 1fr;
+        grid-template-areas: "Topo Topo" "Lado-esq Lado-esq" "corpo corpo" "Lado-dir Lado-dir";
+    }
 }
 
 @media (max-width: 600px) {
-  .imagens {
-    grid-template-columns: 1fr;
-  }
+    .Container {
+        grid-template-columns: 1fr;
+        grid-template-areas: "Topo" "corpo" "Lado-esq" "Lado-dir";
+    }
+
+    .imagens {
+        grid-template-columns: 1fr;
+    }
 }
