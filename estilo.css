@@ -8,10 +8,7 @@
   grid-template-columns: 200px auto 200px;
   grid-template-rows: 80px auto;
   grid-template-areas: "Topo Topo Topo" "Lado-esq corpo Lado-dir";
-  height: 100vh;
-  border: solid 5px black;
-  padding: 10px;
-  margin: 10px
+  height: 100vh
 }
 
 
@@ -25,21 +22,23 @@
 }
 
 .Lado-esq{
-  grid-area: Lado-dir;
+  grid-area: Lado-esq;
   display: flex;
   color: white;
   background-color: lightgreen;
   align-items: center;
   justify-content: center;
+  height: 88vh;
 }
 
 .Lado-dir{
-  grid-area: Lado-esq;
+  grid-area: Lado-dir;
   display: flex;
   background-color: lightsalmon;
   color: white;
   align-items: center;
   justify-content: center;
+  height: 88vh;
 }
 
 .corpo{
@@ -53,26 +52,34 @@
 .imagens{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 70px;
+  gap: 50px;
 }
 
 .imagens img{
   width: 100%;
-  max-width: 500px;
+  max-width: 400px;
   border-radius: 8px;
 }
 
 @media (max-width: 900px) {
     .Container {
-        grid-template-columns: 150px 1fr;
-        grid-template-areas: "Topo Topo" "Lado-esq Lado-esq" "corpo corpo" "Lado-dir Lado-dir";
+        grid-template-columns:150px 3fr 150px;
+        grid-template-areas: "Topo Topo" "Lado-esq" "corpo corpo" "Lado-dir";
     }
 }
 
 @media (max-width: 600px) {
     .Container {
         grid-template-columns: 1fr;
-        grid-template-areas: "Topo" "corpo" "Lado-esq" "Lado-dir";
+        grid-template-areas: "Topo" "Lado-esq" "corpo" "Lado-dir";
+    }
+
+    .Lado-esq{
+      height: 10vh;
+    }
+
+    .Lado-dir{
+      height:10vh;
     }
 
     .imagens {
